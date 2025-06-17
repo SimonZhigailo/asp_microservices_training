@@ -12,8 +12,18 @@ builder.Configuration
     .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: true);
 
-builder.Services.AddDbContext<AppDbContext>(opt => 
-    opt.UseInMemoryDatabase("InMem"));
+if (builder.Environment.IsProduction())
+{
+    Console.WriteLine("Использую SqlServer DB");
+    builder.Services.AddDbContext<AppDbContext>(opt =>
+        opt.UseSqlServer(builder.Configuration.GetConnectionString("PlatformsConnection")));
+}
+else
+{
+    Console.WriteLine("Использую inMem DB");
+    builder.Services.AddDbContext<AppDbContext>(opt =>
+        opt.UseInMemoryDatabase("InMem"));
+}
 
 builder.Services.AddScoped<IPlatformRepo, PlatformRepo>();
 
@@ -23,13 +33,13 @@ builder.Services.AddControllers();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-Console.WriteLine($"--> cOMMAND sERVICE ENDPOINT {builder.Configuration["CommandService"]}");
+Console.WriteLine($"--> Command Service Endpoint {builder.Configuration["CommandService"]}");
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
-PrepDbo.PrepPopulation(app);
+PrepDbo.PrepPopulation(app, builder.Environment.IsProduction());
 
 // app.UseHsts();
 
