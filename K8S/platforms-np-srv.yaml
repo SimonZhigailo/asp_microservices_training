@@ -1,3 +1,4 @@
+#NodePort открытй аздрес по которому можно без маршрутизации IngressController достучаться в Pod platforms
 apiVersion: v1
 kind: Service
 metadata:

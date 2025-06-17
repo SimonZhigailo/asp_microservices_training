@@ -1,3 +1,5 @@
+#Deployment - машина создающая, управляющая Pod'ами
+#ClusterIP - сервис или адресс по которому можно достучаться из Ingress Controller в Pod platforms
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,3 +17,31 @@ spec:
       containers:
         - name: platformservice
           image: simonzhigailo/platformservice:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production
+            - name: CommandServiceUrl
+              value: "http://commands-clusterip-srv"
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "250m"
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: platforms-clusterip-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: platformservice
+  ports:
+  - name: platformservice
+    protocol: TCP
+    port: 80
+    targetPort: 80
