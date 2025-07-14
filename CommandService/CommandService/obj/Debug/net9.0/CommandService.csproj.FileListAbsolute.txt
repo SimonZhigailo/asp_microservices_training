@@ -131,3 +131,5 @@ C:\Users\Sammy\source\repos\asp_microservices_training\CommandService\CommandSer
 C:\Users\Sammy\source\repos\asp_microservices_training\CommandService\CommandService\obj\Debug\net9.0\CommandService.pdb
 C:\Users\Sammy\source\repos\asp_microservices_training\CommandService\CommandService\obj\Debug\net9.0\CommandService.genruntimeconfig.cache
 C:\Users\Sammy\source\repos\asp_microservices_training\CommandService\CommandService\obj\Debug\net9.0\ref\CommandService.dll
+C:\Users\Sammy\source\repos\asp_microservices_training\CommandService\CommandService\bin\Debug\net9.0\appsettings.Production.json
+C:\Users\Sammy\source\repos\asp_microservices_training\CommandService\CommandService\bin\Debug\net9.0\RabbitMQ.Client.dll

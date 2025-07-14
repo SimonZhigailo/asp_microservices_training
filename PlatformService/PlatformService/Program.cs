@@ -1,6 +1,7 @@
 using PlatformService.Data;
 using Microsoft.EntityFrameworkCore;
 using PlatformService.SyncDataServices.http;
+using PlatformService.AsyncDataServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,7 @@ else
 builder.Services.AddScoped<IPlatformRepo, PlatformRepo>();
 
 builder.Services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
+builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
 
 builder.Services.AddControllers();
 
