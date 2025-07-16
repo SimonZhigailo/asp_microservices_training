@@ -1,6 +1,6 @@
 #Deployment - машина создающая, управляющая Pod'ами
 #ClusterIP - сервис или адресс по которому можно достучаться из Ingress Controller в Pod platforms
-apiVersion: apps/v1
+aapiVersion: apps/v1
 kind: Deployment
 metadata:
   name: platforms-depl
@@ -18,7 +18,8 @@ spec:
         - name: platformservice
           image: simonzhigailo/platformservice:latest
           ports:
-            - containerPort: 80
+            - containerPort: 80  # gRPC (HTTP/2)
+            - containerPort: 81  # HTTP (обычные контроллеры)
           env:
             - name: ASPNETCORE_ENVIRONMENT
               value: Production
@@ -41,7 +42,11 @@ spec:
   selector:
     app: platformservice
   ports:
-  - name: platformservice
-    protocol: TCP
-    port: 80
-    targetPort: 80
+    - name: grpc
+      protocol: TCP
+      port: 80
+      targetPort: 80  # gRPC (HTTP/2)
+    - name: http
+      protocol: TCP
+      port: 81
+      targetPort: 81  # обычный HTTP

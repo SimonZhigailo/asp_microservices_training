@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CommandService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7921f5373b2c382bee4596cc19744c2f57f61ee5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe59d54563bb1c4e36ebd76769c356156d36d621")]
 [assembly: System.Reflection.AssemblyProductAttribute("CommandService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CommandService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

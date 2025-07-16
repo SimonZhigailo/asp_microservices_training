@@ -133,3 +133,7 @@ C:\Users\Sammy\source\repos\asp_microservices_training\CommandService\CommandSer
 C:\Users\Sammy\source\repos\asp_microservices_training\CommandService\CommandService\obj\Debug\net9.0\ref\CommandService.dll
 C:\Users\Sammy\source\repos\asp_microservices_training\CommandService\CommandService\bin\Debug\net9.0\appsettings.Production.json
 C:\Users\Sammy\source\repos\asp_microservices_training\CommandService\CommandService\bin\Debug\net9.0\RabbitMQ.Client.dll
+C:\Users\Sammy\source\repos\asp_microservices_training\CommandService\CommandService\bin\Debug\net9.0\Google.Protobuf.dll
+C:\Users\Sammy\source\repos\asp_microservices_training\CommandService\CommandService\bin\Debug\net9.0\Grpc.Core.Api.dll
+C:\Users\Sammy\source\repos\asp_microservices_training\CommandService\CommandService\bin\Debug\net9.0\Grpc.Net.Client.dll
+C:\Users\Sammy\source\repos\asp_microservices_training\CommandService\CommandService\bin\Debug\net9.0\Grpc.Net.Common.dll
